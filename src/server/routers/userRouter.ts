@@ -5,6 +5,6 @@ const userRouter = Router();
 
 const userEndpoint = "user";
 
-userRouter.get(`/${userEndpoint}/login`, loginUserController);
+userRouter.post(`/${userEndpoint}/login`, loginUserController);
 
 export default userRouter;
