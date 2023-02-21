@@ -4,8 +4,7 @@ import loginUserController from "../controllers/loginUser.js";
 const userRouter = Router();
 
 const userEndpoint = "user";
-const userPageEndpoint = "user/login";
 
-userRouter.get(`/${userEndpoint}`, loginUserController);
+userRouter.get(`/${userEndpoint}/login`, loginUserController);
 
 export default userRouter;
