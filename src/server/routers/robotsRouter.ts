@@ -8,14 +8,8 @@ import auth from "../middlewares/auth.js";
 
 const robotsRouter = Router();
 
-const robotsEndpoint = "robots";
-
-robotsRouter.get(`/${robotsEndpoint}`, getRobots);
-robotsRouter.get(`/${robotsEndpoint}/:idRobot`, getRobotById);
-robotsRouter.delete(
-  `/${robotsEndpoint}/delete/:idRobot`,
-  auth,
-  deleteRobotById
-);
+robotsRouter.get("/", getRobots);
+robotsRouter.get("/idRobot", getRobotById);
+robotsRouter.delete("/delete/:idRobot", auth, deleteRobotById);
 
 export default robotsRouter;

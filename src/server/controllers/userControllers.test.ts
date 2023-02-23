@@ -29,15 +29,12 @@ describe("Given a POST '/user/login' endpoint", () => {
     password: "123",
     image: "image.png",
   };
-  const mockUserWrongPassword: UserStructure = {
-    username: "User",
-    password: "124",
-    image: "image.png",
-  };
+
   describe("When it receives a request with username 'User' and password '123'", () => {
     beforeAll(async () => {
       await User.create(mockUser);
     });
+
     test("Then it should respond with status code 200 and a token", async () => {
       const endpoint = "/user/login";
       const expectedStatusCode = 200;
@@ -59,7 +56,13 @@ describe("Given a POST '/user/login' endpoint", () => {
     beforeAll(async () => {
       await User.create(mockUser);
     });
+
     test("Then it should respond with status code 401 and error message 'Wrong credentials'", async () => {
+      const mockUserWrongPassword: UserStructure = {
+        username: "User",
+        password: "124",
+        image: "image.png",
+      };
       const endpoint = "/user/login";
       const expectedStatusCode = 401;
       const expectedErrorMessage = '{"error":"Wrong credentials"}';

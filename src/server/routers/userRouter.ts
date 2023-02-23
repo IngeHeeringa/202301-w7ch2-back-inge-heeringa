@@ -1,7 +1,4 @@
-import {
-  loginUserController,
-  registerUser,
-} from "../controllers/userControllers.js";
+import { loginUser, registerUser } from "../controllers/userControllers.js";
 import { Router } from "express";
 import multer from "multer";
 import { v4 as uuidv4 } from "uuid";
@@ -21,6 +18,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 userRouter.post("/register", upload.single("image"), registerUser);
-userRouter.post("/login", loginUserController);
+userRouter.post("/login", loginUser);
 
 export default userRouter;
