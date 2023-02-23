@@ -9,7 +9,8 @@ export interface CustomRequest extends Request {
   userId: string;
 }
 
-export interface UserCredentials {
+export interface UserStructure {
   username: string;
   password: string;
+  image: string;
 }

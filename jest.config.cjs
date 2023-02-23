@@ -4,4 +4,5 @@ module.exports = {
   testEnvironment: "node",
   testMatch: ["**/src/**/*.test.ts"],
   resolver: "jest-ts-webcompat-resolver",
+  transformIgnorePatterns: ["/node_modules/(?!(foo|bar)/)", "/bar/"],
 };
