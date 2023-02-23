@@ -1,3 +1,4 @@
+import { debug } from "console";
 import { type NextFunction, type Request, type Response } from "express";
 import { CustomError } from "../../CustomError/CustomError.js";
 
@@ -16,12 +17,13 @@ export const notFoundError = (
 };
 
 export const generalError = (
-  { statusCode, publicMessage }: CustomError,
+  error: CustomError,
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
+  debug(error.message);
   res
-    .status(statusCode || 500)
-    .json({ error: publicMessage || "Endpoint not found" });
+    .status(error.statusCode || 500)
+    .json({ error: error.publicMessage || "Something went wrong" });
 };

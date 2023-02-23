@@ -15,8 +15,8 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use("/", robotsRouter);
-app.use("/", userRouter);
+app.use("/robots", robotsRouter);
+app.use("/user", userRouter);
 
 app.use(notFoundError);
 

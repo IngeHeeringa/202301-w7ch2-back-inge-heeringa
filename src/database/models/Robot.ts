@@ -1,22 +1,6 @@
-import mongoose from "mongoose";
+import { model } from "mongoose";
+import robotSchema from "../schemas/robotSchema";
 
-const robotSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  stats: {
-    speed: Number,
-    endurance: Number,
-  },
-  creationDate: Date,
-});
-
-const Robot = mongoose.model("Robot", robotSchema);
-
-robotSchema.set("toJSON", {
-  virtuals: true,
-  transform(doc, ret) {
-    delete ret._id;
-  },
-});
+const Robot = model("Robot", robotSchema);
 
 export default Robot;
